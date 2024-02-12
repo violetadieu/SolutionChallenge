@@ -10,22 +10,10 @@ public class QuizDAO {
     @Autowired
     SqlSessionTemplate sqlSession;
 
-    String namespace="com.Comment";
+    String namespace="com.Quiz";
 
-    public void insert_comment(QuizDTO quizDto){
-        sqlSession.insert(namespace+".insert_comment", quizDto);
-        sqlSession.update(namespace+".update_comment_plus", quizDto.getArticle_id());
-    }
-
-    public QuizDTO select_comment(int comment_id){
-        QuizDTO quizDto =new QuizDTO();
-        quizDto =sqlSession.selectOne(namespace+".select_comment",comment_id);
-        return quizDto;
-    }
-
-    public void delete_comment(QuizDTO quizDto){
-        sqlSession.delete(namespace+".delete_comment", quizDto.getComment_id());
-        sqlSession.update(namespace+".update_comment_minus", quizDto.getArticle_id());
+    public QuizDTO load_quiz(String stageNum){
+        return sqlSession.selectOne(namespace+".load_quiz",stageNum);
     }
 
 }

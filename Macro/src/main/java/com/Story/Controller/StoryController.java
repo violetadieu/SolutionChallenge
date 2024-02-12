@@ -1,7 +1,8 @@
-package com.Quiz.Controller;
+package com.Story.Controller;
 
-import com.Quiz.DAO.QuizDAO;
-import com.Quiz.DTO.QuizDTO;
+
+import com.Story.DAO.StoryDAO;
+import com.Story.DTO.StoryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,20 +14,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class QuizController {
+public class StoryController {
 
     @Autowired
-    QuizDAO quizDAO;
+    StoryDAO storyDAO;
 
     //퀴즈 로드
-    @RequestMapping(value = "/quiz/load", method = RequestMethod.PUT)
+    @RequestMapping(value = "/story/load", method = RequestMethod.PUT)
     @ResponseBody
-    public Map<String,Object> comment_insert(@RequestParam("stageNum") String stageNum){
+    public Map<String,Object> comment_insert(@RequestParam("storyTitle") String storyTitle){
         Map<String, Object> map = new HashMap<String, Object>();
-        QuizDTO quizDto =null;
+        StoryDTO storyDTO =null;
         try {
-            quizDto=quizDAO.load_quiz(stageNum);
-            map.put("content",quizDto);
+            storyDTO=storyDAO.load_story(storyTitle);
+            map.put("content",storyDTO);
             map.put("result","complete");
         } catch (Exception e) {
             map.put("result","fail");
