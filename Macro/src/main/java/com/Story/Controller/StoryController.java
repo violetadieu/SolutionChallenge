@@ -20,7 +20,7 @@ public class StoryController {
     StoryDAO storyDAO;
 
     //퀴즈 로드
-    @RequestMapping(value = "/story/load", method = RequestMethod.PUT)
+    @RequestMapping(value = "/story/load", method = RequestMethod.GET)
     @ResponseBody
     public Map<String,Object> comment_insert(@RequestParam("storyTitle") String storyTitle){
         Map<String, Object> map = new HashMap<String, Object>();
@@ -35,6 +35,5 @@ public class StoryController {
         }
         return map;
     }
-
 
 }
