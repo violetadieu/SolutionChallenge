@@ -5,8 +5,7 @@
 <configuration>
     <typeAliases>
         <package name="com.Member"/>
-        <package name="com.Article"/>
-        <package name="com.Candidate"/>
-        <package name="com.Comment"/>
+        <package name="com.Quiz"/>
+        <package name="com.Story"/>
     </typeAliases>
 </configuration>

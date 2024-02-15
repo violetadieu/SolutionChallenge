@@ -13,7 +13,7 @@
     <select id="load_word" resultType="WordDTO">
         select *
         from word
-        where stage_stageId = (Select stageId from quiz where stageNum = #{stageNum});    </select>
-
+        where stage_stageId = (Select stageId from quiz where stageNum = #{stageNum});
+    </select>
 
 </mapper>
