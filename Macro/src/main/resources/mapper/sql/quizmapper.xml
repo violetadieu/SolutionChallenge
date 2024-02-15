@@ -4,11 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.Quiz">
-    <select id="select_Quiz" resultType="QuizDTO">
-        SELECT * FROM member WHERE social_id = #{social_id}
+    <select id="load_quiz" resultType="QuizDTO">
+        select *
+        from quiz
+        where stageNum = #{stageNum};
     </select>
 
-
+    <select id="load_word" resultType="WordDTO">
+        select *
+        from word
+        where stage_stageId = (Select stageId from quiz where stageNum = #{stageNum});    </select>
 
 
 </mapper>
